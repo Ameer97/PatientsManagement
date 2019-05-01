@@ -1,0 +1,22 @@
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\bin\Debug\Pationts.exe.config
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\bin\Debug\Pationts.exe
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\bin\Debug\Pationts.pdb
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\bin\Debug\Pationts.xml
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\obj\Debug\Pationts.Form1.resources
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\obj\Debug\Pationts.Resources.resources
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\obj\Debug\Pationts.vbproj.GenerateResource.Cache
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\obj\Debug\Pationts.exe
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\obj\Debug\Pationts.xml
+c:\users\ameer\documents\visual studio 2013\Projects\Pationts\obj\Debug\Pationts.pdb
+C:\Users\Ameer\documents\visual studio 2013\Projects\Pationts\obj\Debug\Pationts.vbprojResolveAssemblyReference.cache
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\bin\Debug\Pationts.exe.config
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\obj\Debug\Pationts.exe
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\obj\Debug\Pationts.xml
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\obj\Debug\Pationts.pdb
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\bin\Debug\Pationts.exe
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\bin\Debug\Pationts.pdb
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\bin\Debug\Pationts.xml
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\obj\Debug\Pationts.vbprojResolveAssemblyReference.cache
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\obj\Debug\Pationts.Form1.resources
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\obj\Debug\Pationts.Resources.resources
+C:\Users\Ameer\Documents\Visual Studio 2013\Projects\Pationts - Copy\obj\Debug\Pationts.vbproj.GenerateResource.Cache
