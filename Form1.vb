@@ -4,23 +4,23 @@ Public Class Form1
     Dim dt As DataTable = New DataTable()
     Dim view As DataView
 
-    Private Sub getXlFile()
+    'Private Sub getXlFile()
 
 
-        OpenFileDialog1.Filter = "Excel 2003 Documents (*.xls) | *.xls"
+    '    OpenFileDialog1.Filter = "Excel 2003 Documents (*.xls) | *.xls"
 
-        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
-            Dim fileName As String
-            fileName = OpenFileDialog1.FileName
-            getExcel(fileName)
-        End If
+    '    If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
+    '        Dim fileName As String
+    '        fileName = OpenFileDialog1.FileName
+    '        getExcel(fileName)
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Private Sub getExcel(openFDFilename As String)
+    Private Sub getExcel()
 
         Dim s As String = ""
-        Dim connectionString = String.Format("Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=""Excel 8.0; HDR = Yes; IMEX = 1""", openFDFilename)
+        Dim connectionString = String.Format("Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=""Excel 8.0; HDR = Yes; IMEX = 1""", "MyExcelFile.xls")
 
         Dim adapter As OleDbDataAdapter
         adapter = New OleDbDataAdapter("select * from [patient$]", connectionString)
@@ -57,6 +57,11 @@ Public Class Form1
         If username = "doctor" AndAlso password = "1234" Then
             flag = True
             MessageBox.Show("You Are a Doctor")
+            Button1.Visible = False
+            Label1.Visible = False
+            Label2.Visible = False
+            TextBox1.Visible = False
+            TextBox2.Visible = False
         Else
             MessageBox.Show("You are not a Doctor")
             flag = False
@@ -64,7 +69,8 @@ Public Class Form1
         End If
         Dim watch As Stopwatch = Stopwatch.StartNew()
         watch.Start()
-        getXlFile()
+        'getXlFile()
+        getExcel()
         watch.Stop()
         MessageBox.Show(watch.Elapsed.TotalSeconds)
 
@@ -94,7 +100,7 @@ Public Class Form1
         Dim customerTable As DataSet = New DataSet()
         dt.TableName = "patient"
         customerTable.Tables.Add(dt)
-        ExcelLibrary.DataSetHelper.CreateWorkbook(OpenFileDialog1.FileName, customerTable)
+        ExcelLibrary.DataSetHelper.CreateWorkbook("MyExcelFile", customerTable)
         MessageBox.Show("Your file has been saved")
     End Sub
 
@@ -126,7 +132,11 @@ Public Class Form1
         If flag Then
             activate = InputBox("Enter Activate Code")
         End If
-        If activate = "a" Then
+        If activate = "JKHX300590-eyJsaWNlbnNlSWQiOiJKS0hYMzAwNTkwIiwibGljZW5zZWVOYW1lIjoiTmljb2xlIFBvd2VsbCIsImFzc2lnbmVlTmFtZSI6IiIsImFzc2lnbmVlRW1haWwiOiIiLCJsaWNlbnNlUmVzdHJpY3Rpb24iOiJGb3IgZWR1Y2F0aW9uYWwgdXNlIG9ubHkiLCJjaGVja0NvbmN1cnJlbnRVc2UiOmZhbHNlLCJwcm9kdWN0cyI6W3siY29kZSI6IklJIiwicGFpZFVwVG8iOiIyMDE5LTA5LTI0In0seyJjb2RlIjoiQUMiLCJwYWlkVXBUbyI6IjIwMTktMDktMjQifSx7ImNvZGUiOiJEUE4iLCJwYWlkVXBUbyI6IjIwMTktMDktMjQifSx7ImNvZGUiOiJQUyIsInBhaWRVcFRvIjoiMjAxOS0wOS0yNCJ9LHsiY29kZSI6IkdPIiwicGFpZFVwVG8iOiIyMDE5LTA5LTI0In0seyJjb2RlIjoiRE0iLCJwYWlkVXBUbyI6IjIwMTktMDktMjQifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxOS0wOS0yNCJ9LHsiY29kZSI6IlJTMCIsInBhaWRVcFRvIjoiMjAxOS0wOS0yNCJ9LHsiY29kZSI6IlJDIiwicGFpZFVwVG8iOiIyMDE5LTA5LTI0In0seyJjb2RlIjoiUkQiLCJwYWlkVXBUbyI6IjIwMTktMDktMjQifSx7ImNvZGUiOiJQQyIsInBhaWRVcFRvIjoiMjAxOS0wOS0yNCJ9LHsiY29kZSI6IlJNIiwicGFpZFVwVG8iOiIyMDE5LTA5LTI0In0seyJjb2RlIjoiV1MiLCJwYWlkVXBUbyI6IjIwMTktMDktMjQifSx7ImNvZGUiOiJEQiIsInBhaWRVcFRvIjoiMjAxOS0wOS0yNCJ9LHsiY29kZSI6IkRDIiwicGFpZFVwVG8iOiIyMDE5LTA5LTI0In0seyJjb2RlIjoiUlNVIiwicGFpZFVwVG8iOiIyMDE5LTA5LTI0In1dLCJoYXNoIjoiMTAzMTY2ODUvMCIsImdyYWNlUGVyaW9kRGF5cyI6MCwiYXV0b1Byb2xvbmdhdGVkIjpmYWxzZSwiaXNBdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlfQ==-GvkOuUgCVPdyynFuSG+GNmcDZKp643apInM159fRXb69urSBIFyKO46umkRbl89lwr25SrAcl2TfRG1NMP/zPMRmGvd5VHiXDxa/xatzyPpkGf/czv0GeyuP/XhfX8332kXh9Dnowt3Z++IKUlkTjYInkpg09G9OHSwYcIcHAZ51CsqbrWIaemvDH3P9v+k6EUwwhgDZYA/TplavU/2d9J0EZg8kwzo/TK5P7Za09RFx91YBE558Ncl6VMgdhcwgF+oYHGEfs4Bez5xawJwagLymf3mLhq9acihxGnFsfqcyM/EeKDLKWOAveLQIk1NhtU7YR3fFC0EHEGwb04MavA==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==" Then
+            MessageBox.Show("the Code is valid")
+
+            Button3.Visible = False
+
             For Each column In dt.Columns
                 ComboBox1.Items.Add(column.ColumnName)
             Next
@@ -136,6 +146,7 @@ Public Class Form1
             TextBox3.Enabled = True
             Button4.Enabled = True
         Else
+            MessageBox.Show("the Code is invalied")
             Application.Exit()
         End If
     End Sub
